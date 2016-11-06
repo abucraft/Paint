@@ -1,0 +1,27 @@
+{
+  "name": "paint",
+  "author": "Li Sheng",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "A web paint tool",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^2.2.4",
+    "gulp": "latest",
+    "gulp-replace": "latest",
+    "gulp-sequence": "latest",
+    "gulp-shell": "latest",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "source-map-loader": "^0.1.5",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "@types/react": "^0.14.44",
+    "@types/react-dom": "^0.14.18",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
+}

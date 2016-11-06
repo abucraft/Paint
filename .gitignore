@@ -1,0 +1,6 @@
+jsconfig.json
+node_modules
+.vscode
+dist
+index.html
+*.log
