@@ -1,15 +1,18 @@
 {
     "compilerOptions": {
         "outDir": "./dist/",
+        "baseUrl": "./src",
+        "paths": {
+            "*":["*"]
+        },
         "sourceMap": true,
         "noImplicitAny": true,
         "module": "commonjs",
         "target": "es5",
         "jsx": "react"
     },
-    "files": [
+    "include": [
         "./declarations.d.ts",
-        "./src/components/Hello.tsx",
-        "./src/index.tsx"
+        "./src/**/*"
     ]
 }

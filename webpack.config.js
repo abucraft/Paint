@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-
+var path = require('path');
 module.exports = {
     entry: [
         "react-hot-loader/patch",
@@ -18,13 +18,15 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
+        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js", '.scss'],
+        root: [path.join(__dirname,'./src')]
     },
 
     module: {
         loaders: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
-            { test: /\.tsx?$/, loaders: ["react-hot-loader/webpack","awesome-typescript-loader"] }
+            { test: /\.tsx?$/, loaders: ["react-hot-loader/webpack", "awesome-typescript-loader"] },
+            { test: /\.scss$/, loader: 'style!css!sass' }
         ],
 
         preLoaders: [
