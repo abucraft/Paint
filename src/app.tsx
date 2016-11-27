@@ -1,11 +1,25 @@
 import * as React from "react";
 import { Canvas } from "components/canvas"
-import { Pencil } from "components/tools/pencil";
-interface AppState { image: ImageData, event: PaintEvent, time: number, count: number }
+import { Pencil, PencilSetting } from "components/tools/pencil";
+interface AppState {
+    image: ImageData,
+    event: PaintEvent,
+    time: number,
+    count: number,
+    pencilSettings: PencilSetting
+}
 export class App extends React.PureComponent<{}, AppState> {
     constructor() {
         super();
-        this.state = { image: new ImageData(1000, 1000), event: null, time: Date.now(), count: 0 };
+        this.state = { 
+            image: new ImageData(1000, 1000), 
+            event: null, 
+            time: Date.now(), 
+            count: 0, 
+            pencilSettings: {
+                width: 0.5 
+            } 
+        };
     }
     onPaintDown = (event: PaintEvent) => {
         console.log(event);
@@ -21,7 +35,7 @@ export class App extends React.PureComponent<{}, AppState> {
     onPaintLeave = (event: PaintEvent) => {
         this.setState({ event: event } as AppState);
     }
-    
+
     onUpdateImage = (image: ImageData) => {
 
     }
@@ -32,7 +46,7 @@ export class App extends React.PureComponent<{}, AppState> {
     }
     render() {
         return <div>
-            <Pencil onUpdateImage={this.onUpdateImage} image={this.state.image} event={this.state.event} onDraw={this.onDraw} />
+            <Pencil onUpdateImage={this.onUpdateImage} image={this.state.image} event={this.state.event} onDraw={this.onDraw} settings={this.state.pencilSettings} />
             <Canvas image={this.state.image} position={{ x: 1, y: 2 }} onPaintDown={this.onPaintDown} onPaintUp={this.onPaintUp} onPaintMove={this.onPaintMove} count={this.state.count} />
         </div>;
     }
