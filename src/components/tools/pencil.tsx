@@ -130,10 +130,11 @@ export class Pencil extends React.PureComponent<PencilProps, PencilState>{
         let radius = this.props.settings.width;
         let image = this.props.image;
         let color = { r: 0, g: 0, b: 0, a: 20 };
-        let left = centerX - Math.ceil(radius);
-        let right = centerX + Math.ceil(radius);
-        let top = centerY - Math.ceil(radius);
-        let bottom = centerY + Math.ceil(radius);
+        // circle bounds are smaller than the min value and max than max value
+        let left = Math.floor(centerX - radius);
+        let right = Math.ceil(centerX + radius);
+        let top = Math.floor(centerY - radius);
+        let bottom = Math.ceil(centerY + radius);
         for (let y = top; y <= bottom; y++) {
             let inside = false;
             for (let x = left; x < centerX; x++) {

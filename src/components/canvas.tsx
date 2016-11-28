@@ -13,10 +13,12 @@ export class Canvas extends React.PureComponent<CanvasProps, CanvasState>{
 
     initCanvas = (canvas: HTMLCanvasElement) => {
         this.canvas = canvas;
-        let height = window.innerHeight;
-        let width = window.innerWidth;
-        this.canvas.width = width;
-        this.canvas.height = height;
+        if (this.canvas) {
+            let height = window.innerHeight;
+            let width = window.innerWidth;
+            this.canvas.width = width;
+            this.canvas.height = height;
+        }
     }
 
     onWindowResize = () => {
@@ -43,7 +45,7 @@ export class Canvas extends React.PureComponent<CanvasProps, CanvasState>{
         this.draw();
         let now = Date.now();
         console.log(now - this.state.time);
-        this.state.time=now;
+        this.state.time = now;
     }
 
     componentDidMount() {
